@@ -33,12 +33,14 @@ Projeyi bilgisayarınıza indirmek için aşağıdaki komutu kullanabilirsiniz:
 git clone https://github.com/bahadirverir/LinkedList.git
 ```
 ### **2️⃣ Derleme**
+Bir terminalde proje dizinine yerleşin.
+
 Bağlı liste programını derlemek için GCC kullanarak aşağıdaki komutu çalıştırın:
 ```bash
-gcc linkedlist.c -o linkedlist
+gcc List.c -o LinkedList
 ```
 ### **3️⃣ Programı Çalıştırma**
 Derleme tamamlandıktan sonra programı çalıştırmak için:
 ```bash
-./linkedlist
+./LinkedList
 ```
