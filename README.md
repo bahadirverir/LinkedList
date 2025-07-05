@@ -10,7 +10,6 @@ Program, kullanıcı dostu bir **menü sistemi** ile çalışır ve kullanıcın
 
 ![Açıklama](https://raw.githubusercontent.com/bahadirverir/Assets/main/Ekran%20Resmi%202025-07-05%2014.21.04.png)
 
-
 ---
 
 ## 📌 **İçerik ve Özellikler**
