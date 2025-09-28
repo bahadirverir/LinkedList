@@ -10,7 +10,7 @@ In this project, **a singly linked list** was implemented in C, covering fundame
 
 The program features a user-friendly menu system, allowing users to manage and manipulate the linked list efficiently.
 
-![Açıklama](https://raw.githubusercontent.com/bahadirverir/Assets/main/Ekran%20Resmi%202025-07-05%2014.21.04.png)
+![Açıklama](https://github.com/bahadirverir/Assets/blob/main/Ekran%20Resmi%202025-09-28%2019.57.39.png)
 
 ---
 
