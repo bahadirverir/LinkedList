@@ -1,157 +1,159 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct dugum{
-    int veri;
-    struct dugum *sonraki;
+struct Node {
+    int data;
+    struct Node *next;
 };
-struct dugum *start = NULL;
+struct Node *start = NULL;
 
-void goruntule(struct dugum *);
-void ara(struct dugum *);
-void dugumsay(struct dugum *);
-void dugum_tekrarlari_sil(struct dugum *);
-struct dugum *ekle_bas(struct dugum *);
-struct dugum *ekle_son(struct dugum *);
-struct dugum *ekle_once(struct dugum *);
-struct dugum *ekle_sonra(struct dugum *);
-struct dugum *sil_bas(struct dugum *);
-struct dugum *sil_son(struct dugum *);
-struct dugum *sil_sonra(struct dugum *);
-struct dugum *sil_once(struct dugum *);
-struct dugum *liste_olustur(struct dugum *);
-struct dugum *sil_tum(struct dugum *);
-struct dugum *sirala_kucukten_buyuge(struct dugum *);
-struct dugum *sirala_buyukten_kucuge(struct dugum *);
-struct dugum *listeyi_ters_cevir(struct dugum *);
+void display(struct Node *);
+void search(struct Node *);
+void countNodes(struct Node *);
+void removeDuplicateNodes(struct Node *);
+struct Node *addAtBeginning(struct Node *);
+struct Node *addAtEnd(struct Node *);
+struct Node *addBefore(struct Node *);
+struct Node *addAfter(struct Node *);
+struct Node *deleteAtBeginning(struct Node *);
+struct Node *deleteAtEnd(struct Node *);
+struct Node *deleteAfter(struct Node *);
+struct Node *deleteBefore(struct Node *);
+struct Node *createList(struct Node *);
+struct Node *deleteAll(struct Node *);
+struct Node *sortAscending(struct Node *);
+struct Node *sortDescending(struct Node *);
+struct Node *reverseList(struct Node *);
 
 void menu()
 {
-    int choice,devam;
+    int choice, continueProgram;
     while (1)
     {
-        printf("\n****** ANA MENU ******\n");
-        printf(" 1: Liste oluştur\n");
-        printf(" 2: Listeyi görüntüle\n");
-        printf(" 3: Düğümlerde ara\n");
-        printf(" 4: Düğümleri say\n");
-        printf(" 5: En başa bir düğüm ekle\n");
-        printf(" 6: En sona bir düğüm ekle\n");
-        printf(" 7: Belirli bir düğümden öncesine düğüm ekle\n");
-        printf(" 8: Belirli bir düğümden sonrasına düğüm ekle\n");
-        printf(" 9: En baştaki düğümü sil\n");
-        printf("10: En sondaki düğümü sil\n");
-        printf("11: Belirli bir düğümden sonraki düğümü sil\n");
-        printf("12: Belirli bir düğümden önceki düğümü sil\n");
-        printf("13: Düğümlerin hepsini sil\n");
-        printf("14: Düğümleri küçükten büyüğe sırala\n");
-        printf("15: Düğümleri büyükten küçüğe sırala\n");
-        printf("16: Listeyi tersine çevir\n");
-        printf("17: Tekrar eden düğümleri sil\n");
-        printf("18: Çıkış\n");
-        printf("Seçiminizi yapın: ");
+        printf("\n****** MAIN MENU ******\n");
+        printf(" 1: Create list\n");
+        printf(" 2: Display list\n");
+        printf(" 3: Search nodes\n");
+        printf(" 4: Count nodes\n");
+        printf(" 5: Add a node at the beginning\n");
+        printf(" 6: Add a node at the end\n");
+        printf(" 7: Add a node before a specific node\n");
+        printf(" 8: Add a node after a specific node\n");
+        printf(" 9: Delete the first node\n");
+        printf("10: Delete the last node\n");
+        printf("11: Delete the node after a specific node\n");
+        printf("12: Delete the node before a specific node\n");
+        printf("13: Delete all nodes\n");
+        printf("14: Sort nodes ascending\n");
+        printf("15: Sort nodes descending\n");
+        printf("16: Reverse the list\n");
+        printf("17: Remove duplicate nodes\n");
+        printf("18: Exit\n");
+        printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice)
         {
         case 1:
-            printf("\nBagli Liste Olusturuluyor...\n");
-            start = liste_olustur(start);
-            printf("\nBagli Liste Olusturuldu!\n");
-            goruntule(start);
+            printf("\nCreating linked list...\n");
+            start = createList(start);
+            printf("\nLinked list created!\n");
+            display(start);
             printf("\n");
             break;
 
         case 2:
-            printf("\nBagli Liste Goruntuleniyor...\n");
-            goruntule(start);
+            printf("\nDisplaying linked list...\n");
+            display(start);
             printf("\n");
             break;
 
         case 3:
-            ara(start);
+            search(start);
             printf("\n");
             break;
 
         case 4:
-            printf("\nBagli listedeki dügümler sayiliyor...\n");
-            dugumsay(start);
+            printf("\nCounting nodes in the linked list...\n");
+            countNodes(start);
             break;
 
         case 5:
-            start = ekle_bas(start);
-            printf("Düğüm en başa eklendi.\n");
+            start = addAtBeginning(start);
+            printf("Node added at the beginning.\n");
             break;
 
         case 6:
-            start = ekle_son(start);
-            printf("Düğüm en sona eklendi.\n");
+            start = addAtEnd(start);
+            printf("Node added at the end.\n");
             break;
 
         case 7:
-            start = ekle_once(start);
-            printf("Düğüm başarıyla eklendi.\n");
+            start = addBefore(start);
+            printf("Node added successfully.\n");
             break;
 
         case 8:
-            start = ekle_sonra(start);
-            printf("Düğüm başarıyla eklendi.\n");
+            start = addAfter(start);
+            printf("Node added successfully.\n");
             break;
 
         case 9:
-            start = sil_bas(start);
-            printf("\nEn baştaki düğüm silindi\n");
+            start = deleteAtBeginning(start);
+            printf("\nFirst node deleted.\n");
             break;
 
         case 10:
-            start = sil_son(start);
-            printf("\nEn sondaki düğüm silindi\n");
+            start = deleteAtEnd(start);
+            printf("\nLast node deleted.\n");
             break;
 
         case 11:
-            start = sil_sonra(start);
-            printf("Düğüm başarıyla silindi.\n");
+            start = deleteAfter(start);
+            printf("Node deleted successfully.\n");
             break;
 
         case 12:
-            start = sil_once(start);
-            printf("Düğüm başarıyla silindi.\n");
+            start = deleteBefore(start);
+            printf("Node deleted successfully.\n");
             break;
 
         case 13:
-            start = sil_tum(start);
-            printf("Bağlı listenin tamamen silindi.\n");
+            start = deleteAll(start);
+            printf("All nodes in the linked list deleted.\n");
             break;
 
         case 14:
-            start = sirala_kucukten_buyuge(start);
-            printf("Bağlı liste küçükten büyüğe sıralandı.\n");
+            start = sortAscending(start);
+            printf("Linked list sorted in ascending order.\n");
             break;
 
         case 15:
-            start = sirala_buyukten_kucuge(start);
-            printf("Bağlı liste büyükten küçüğe sıralandı.\n");
+            start = sortDescending(start);
+            printf("Linked list sorted in descending order.\n");
             break;
 
         case 16:
-            start = listeyi_ters_cevir(start);
-            printf("Bağlı liste ters çevirildi.\n");
+            start = reverseList(start);
+            printf("Linked list reversed.\n");
             break;
         
         case 17:
-            dugum_tekrarlari_sil(start);
-            printf("Tekrar eden bağlı liste elemanları silindi\n");
+            removeDuplicateNodes(start);
+            printf("Duplicate nodes removed.\n");
             break;
 
         case 18:
-            printf("Çıkış yapılıyor...\n");
+            printf("Exiting...\n");
             return; 
             break;
 
         default:
-            printf("Geçersiz seçim, tekrar deneyin.\n");
+            printf("Invalid choice, please try again.\n");
             break;
-        }}}
+        }
+    }
+}
 
 int main()
 {
@@ -159,238 +161,239 @@ int main()
     return 0;
 }
 
-struct dugum *liste_olustur(struct dugum *start) //=> 1
+struct Node *createList(struct Node *start) //=> 1
 {
-    struct dugum *yeni_dugum, *ptr;
-    int sayi;
-    printf("\nSonlandirmak icin -1 girin");
-    printf("\nVeriyi girin: ");
-    scanf("%d", &sayi);
+    struct Node *newNode, *ptr;
+    int value;
+    printf("\nEnter -1 to stop\n");
+    printf("Enter a value: ");
+    scanf("%d", &value);
     
-    while(sayi != -1)
+    while(value != -1)
     {
-        yeni_dugum = (struct dugum *)malloc(sizeof(struct dugum));
-        yeni_dugum->veri = sayi;
+        newNode = (struct Node *)malloc(sizeof(struct Node));
+        newNode->data = value;
         
         if(start == NULL)
         {
-            yeni_dugum->sonraki = NULL;
-            start = yeni_dugum;
+            newNode->next = NULL;
+            start = newNode;
         }
         else
         {
             ptr = start;
             
-            while(ptr->sonraki != NULL)
-                ptr = ptr->sonraki;
+            while(ptr->next != NULL)
+                ptr = ptr->next;
             
-            ptr->sonraki = yeni_dugum;
-            yeni_dugum->sonraki = NULL;
+            ptr->next = newNode;
+            newNode->next = NULL;
         }
-        printf("Veriyi girin: ");
-        scanf("%d", &sayi);
+        printf("Enter a value: ");
+        scanf("%d", &value);
     }
     return start;
 }
 
-void goruntule(struct dugum *start) //=> 2
+void display(struct Node *start) //=> 2
 {
-    struct dugum *ptr;
+    struct Node *ptr;
     ptr = start;
     while(ptr != NULL)
     {
-        printf(" %d\t",ptr->veri);
-        ptr = ptr->sonraki;
+        printf(" %d\t", ptr->data);
+        ptr = ptr->next;
     }
 }
 
-void ara(struct dugum *start) //=> 3
+void search(struct Node *start) //=> 3
 {
-    struct dugum *ptr;
+    struct Node *ptr;
     ptr = start;
-    int deger;
-    printf("\nAranacak değeri gir: ");
-    scanf("%d",&deger);
+    int target;
+    printf("\nEnter the value to search for: ");
+    scanf("%d", &target);
     while(ptr != NULL)
     {
-        if(deger == ptr->veri)
+        if(target == ptr->data)
         {
-            printf("Aranan değer \"%d\" listede bulundu.",deger);
+            printf("The value \"%d\" was found in the list.\n", target);
             break;
         }
         else
-         ptr = ptr->sonraki;
+            ptr = ptr->next;
     }
     if(ptr == NULL)
     {
-        printf("Aranan değer \"%d\" listede bulunamadı.",deger);
+        printf("The value \"%d\" was not found in the list.\n", target);
     }
 }
 
-void dugumsay(struct dugum *start) //=> 4
+void countNodes(struct Node *start) //=> 4
 {
-    struct dugum *ptr;
+    struct Node *ptr;
     ptr = start;
-    int sayac = 0;
+    int counter = 0;
     while(ptr != NULL)
     {
-        sayac++;
-        ptr = ptr->sonraki;
+        counter++;
+        ptr = ptr->next;
     }
-    printf("Düğüm sayısı = %d\n",sayac);
+    printf("Number of nodes = %d\n", counter);
 }
 
-struct dugum *ekle_bas(struct dugum *start) //=> 5
+struct Node *addAtBeginning(struct Node *start) //=> 5
 {
-    struct dugum *ptr;
-    int veri;
-    printf("\nVeriyi gir: ");
-    scanf("%d",&veri);
+    struct Node *ptr;
+    int value;
+    printf("\nEnter a value: ");
+    scanf("%d", &value);
 
-    ptr = (struct dugum *)malloc(sizeof(struct dugum));
-    ptr->veri = veri;
-    ptr->sonraki = start;
+    ptr = (struct Node *)malloc(sizeof(struct Node));
+    ptr->data = value;
+    ptr->next = start;
     start = ptr;
     return start;
 }
 
-struct dugum *ekle_son(struct dugum *start) //=> 6
+struct Node *addAtEnd(struct Node *start) //=> 6
 {
-    struct dugum *yeni_dugum, *ptr;
-    int sayi;
-    printf("\nVeriyi girin: ");
-    scanf("%d", &sayi);
+    struct Node *newNode, *ptr;
+    int value;
+    printf("\nEnter a value: ");
+    scanf("%d", &value);
     
-    yeni_dugum = (struct dugum *)malloc(sizeof(struct dugum));
-    yeni_dugum->veri = sayi;
-    yeni_dugum->sonraki = NULL;
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode->data = value;
+    newNode->next = NULL;
     
     ptr = start;
-    while(ptr->sonraki != NULL)
-        ptr = ptr->sonraki;
+    while(ptr->next != NULL)
+        ptr = ptr->next;
     
-    ptr->sonraki = yeni_dugum;
+    ptr->next = newNode;
     return start;
 }
 
-struct dugum *ekle_once(struct dugum *start) //=> 7
+struct Node *addBefore(struct Node *start) //=> 7
 {
-    struct dugum *yeni_dugum, *ptr, *preptr;
-    int sayi, deger;
-    printf("\nVeriyi girin: ");
-    scanf("%d", &sayi);    
-    printf("\nHangi degerden once eklemek istiyorsunuz: ");
-    scanf("%d", &deger);
+    struct Node *newNode, *ptr, *preptr;
+    int value, target;
+    printf("\nEnter a value: ");
+    scanf("%d", &value);    
+    printf("\nEnter the value before which to insert: ");
+    scanf("%d", &target);
     
-    yeni_dugum = (struct dugum *)malloc(sizeof(struct dugum));
-    yeni_dugum->veri = sayi;
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode->data = value;
     ptr = start;   
     preptr = ptr;
     
-    while(ptr->veri != deger)
+    while(ptr->data != target)
     {
         preptr = ptr;        
-        ptr = ptr->sonraki;
+        ptr = ptr->next;
     }    
-    preptr->sonraki = yeni_dugum;
-    yeni_dugum->sonraki = ptr;    
+    preptr->next = newNode;
+    newNode->next = ptr;    
     return start;
 }
 
-struct dugum *ekle_sonra(struct dugum *start) //=> 8
+struct Node *addAfter(struct Node *start) //=> 8
 {
-    struct dugum *yeni_dugum, *ptr, *preptr;
-    int sayi, deger;
-    printf("\nVeriyi girin: ");
-    scanf("%d", &sayi);
-    printf("\nHangi degerden sonra eklemek istiyorsunuz: ");    
-    scanf("%d", &deger);
+    struct Node *newNode, *ptr, *preptr;
+    int value, target;
+    printf("\nEnter a value: ");
+    scanf("%d", &value);
+    printf("\nEnter the value after which to insert: ");    
+    scanf("%d", &target);
     
-    yeni_dugum = (struct dugum *)malloc(sizeof(struct dugum));
-    yeni_dugum->veri = sayi;
+    newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode->data = value;
     ptr = start;    
 	preptr = ptr;
     
-    while(preptr->veri != deger)
+    while(preptr->data != target)
     {
         preptr = ptr;        
-		ptr = ptr->sonraki;
+		ptr = ptr->next;
     }    
-    preptr->sonraki = yeni_dugum;
-    yeni_dugum->sonraki = ptr;    
+    preptr->next = newNode;
+    newNode->next = ptr;    
     return start;
 }
 
-struct dugum *sil_bas(struct dugum *start) //=> 9
+struct Node *deleteAtBeginning(struct Node *start) //=> 9
 {
-    struct dugum *ptr;
+    struct Node *ptr;
     ptr = start;
-    start = start->sonraki;
+    start = start->next;
     free(ptr);
     return start;
 }
 
-struct dugum *sil_son(struct dugum *start) //=> 10
+struct Node *deleteAtEnd(struct Node *start) //=> 10
 {
-    struct dugum *ptr, *preptr;
+    struct Node *ptr, *preptr;
     ptr = start; 
     preptr = ptr;
     
-    while(ptr->sonraki != NULL)
+    while(ptr->next != NULL)
     {
-        preptr = ptr; ptr = ptr->sonraki;
+        preptr = ptr; 
+        ptr = ptr->next;
     }
-    preptr->sonraki = NULL;
+    preptr->next = NULL;
     free(ptr);
     return start;
 }
 
-struct dugum *sil_sonra(struct dugum *start) //=> 11
+struct Node *deleteAfter(struct Node *start) //=> 11
 {
-    struct dugum *ptr, *preptr;
-    int deger;
-    printf("\nHangi degerden sonrasini silmek istiyorsunuz: ");
-    scanf("%d", &deger);
+    struct Node *ptr, *preptr;
+    int target;
+    printf("\nEnter the value after which to delete: ");
+    scanf("%d", &target);
     ptr = start;
     preptr = ptr;
     
-    while(preptr->veri != deger)
+    while(preptr->data != target)
     {
         preptr = ptr;
-        ptr = ptr->sonraki;
+        ptr = ptr->next;
     }
-    preptr->sonraki = ptr->sonraki;
+    preptr->next = ptr->next;
     free(ptr);    
     return start;
 }
 
-struct dugum *sil_once(struct dugum *start) //=> 12
+struct Node *deleteBefore(struct Node *start) //=> 12
 {
-    struct dugum *ptr = start, *preptr = NULL;
-    int deger;
-    printf("\nHangi degerden oncesini silmek istiyorsunuz: ");
-    scanf("%d", &deger);
-    while(ptr->sonraki != NULL && ptr->sonraki->veri != deger)
+    struct Node *ptr = start, *preptr = NULL;
+    int target;
+    printf("\nEnter the value before which to delete: ");
+    scanf("%d", &target);
+    while(ptr->next != NULL && ptr->next->data != target)
     {
         preptr = ptr;
-        ptr = ptr->sonraki;
+        ptr = ptr->next;
     }
     
     if(preptr == NULL) 
-        start = ptr->sonraki;
+        start = ptr->next;
     else
-        preptr->sonraki = ptr->sonraki;
+        preptr->next = ptr->next;
     free(ptr);
     return start;
 }
 
-struct dugum *sil_tum(struct dugum *start) //=> 13
+struct Node *deleteAll(struct Node *start) //=> 13
 {
-    struct dugum *ptr, *next_ptr;
+    struct Node *ptr, *next_ptr;
     ptr = start;
     while(ptr != NULL)
     {
-        next_ptr = ptr->sonraki; 
+        next_ptr = ptr->next; 
         free(ptr);
         ptr = next_ptr; 
     }
@@ -398,76 +401,80 @@ struct dugum *sil_tum(struct dugum *start) //=> 13
     return start;
 }
 
-struct dugum *sirala_kucukten_buyuge(struct dugum *start) //=> 14
+struct Node *sortAscending(struct Node *start) //=> 14
 {
-    struct dugum *ptr1, *ptr2;
+    struct Node *ptr1, *ptr2;
     int temp;
-    for (ptr1 = start; ptr1->sonraki != NULL; ptr1 = ptr1->sonraki) 
+    for (ptr1 = start; ptr1->next != NULL; ptr1 = ptr1->next) 
     {
-        for (ptr2 = start; ptr2->sonraki != NULL; ptr2 = ptr2->sonraki) 
+        for (ptr2 = start; ptr2->next != NULL; ptr2 = ptr2->next) 
         {
-            if (ptr2->veri > ptr2->sonraki->veri) 
+            if (ptr2->data > ptr2->next->data) 
             { 
-                temp = ptr2->veri;
-                ptr2->veri = ptr2->sonraki->veri;
-                ptr2->sonraki->veri = temp;
-            }}}
+                temp = ptr2->data;
+                ptr2->data = ptr2->next->data;
+                ptr2->next->data = temp;
+            }
+        }
+    }
     return start;
 }
 
-struct dugum *sirala_buyukten_kucuge(struct dugum *start) //=> 15
+struct Node *sortDescending(struct Node *start) //=> 15
 {
-    struct dugum *ptr1, *ptr2;
+    struct Node *ptr1, *ptr2;
     int temp;
-    for (ptr1 = start; ptr1->sonraki != NULL; ptr1 = ptr1->sonraki) 
+    for (ptr1 = start; ptr1->next != NULL; ptr1 = ptr1->next) 
     {
-        for (ptr2 = start; ptr2->sonraki != NULL; ptr2 = ptr2->sonraki) 
+        for (ptr2 = start; ptr2->next != NULL; ptr2 = ptr2->next) 
         {
-            if (ptr2->veri < ptr2->sonraki->veri) 
+            if (ptr2->data < ptr2->next->data) 
             { 
-                temp = ptr2->veri;
-                ptr2->veri = ptr2->sonraki->veri;
-                ptr2->sonraki->veri = temp;
-            }}}
+                temp = ptr2->data;
+                ptr2->data = ptr2->next->data;
+                ptr2->next->data = temp;
+            }
+        }
+    }
     return start;
 }
 
-struct dugum *listeyi_ters_cevir(struct dugum *start) //=> 16
+struct Node *reverseList(struct Node *start) //=> 16
 {
-    struct dugum *preptr = NULL;   
-    struct dugum *ptr = start; 
-    struct dugum *next_ptr = NULL;   
+    struct Node *prev = NULL;   
+    struct Node *ptr = start; 
+    struct Node *next_ptr = NULL;   
     while (ptr != NULL) 
     {
-        next_ptr = ptr->sonraki; 
-        ptr->sonraki = preptr; 
-        preptr = ptr;          
+        next_ptr = ptr->next; 
+        ptr->next = prev; 
+        prev = ptr;          
         ptr = next_ptr;         
     }
-    start = preptr; 
+    start = prev; 
     return start;
 }
 
-void dugum_tekrarlari_sil(struct dugum *start) //=> 17
+void removeDuplicateNodes(struct Node *start) //=> 17
 {
-    struct dugum *ptr1, *ptr2, *dup;
+    struct Node *ptr1, *ptr2, *dup;
     ptr1 = start;
-    while (ptr1 != NULL && ptr1->sonraki != NULL) 
+    while (ptr1 != NULL && ptr1->next != NULL) 
     {
         ptr2 = ptr1;
-        while (ptr2->sonraki != NULL) 
+        while (ptr2->next != NULL) 
         {
-            if (ptr1->veri == ptr2->sonraki->veri) 
+            if (ptr1->data == ptr2->next->data) 
             {
-                dup = ptr2->sonraki;
-                ptr2->sonraki = ptr2->sonraki->sonraki;
+                dup = ptr2->next;
+                ptr2->next = ptr2->next->next;
                 free(dup);
             } 
             else 
             {
-                ptr2 = ptr2->sonraki;
+                ptr2 = ptr2->next;
             }
         }
-        ptr1 = ptr1->sonraki;
+        ptr1 = ptr1->next;
     }
 }
