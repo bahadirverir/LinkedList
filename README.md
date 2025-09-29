@@ -1,50 +1,46 @@
-# **🔷 Linked List Project in C**
+# **C Dilinde Bağlı Liste (Linked List) Projesi**
 
-This project is a **C** language program that implements a singly linked list.  
-Users can perform operations such as adding, deleting, searching, sorting, and reversing nodes through a menu-based system.
+Bu proje, **C dili** kullanılarak **tek yönlü bağlı liste (singly linked list)** işlemlerini gerçekleştiren bir programdır. Kullanıcı, **menü tabanlı** bir sistem üzerinden bağlı liste üzerinde ekleme, silme, arama, sıralama ve ters çevirme gibi işlemleri gerçekleştirebilir.
 
-## 🚀 **Project Overview**
+## 🚀 **Proje Özeti**
 
-Linked lists are an essential topic in **dynamic memory management** and **data structures**.  
-In this project, **a singly linked list** was implemented in C, covering fundamental operations.
+Bağlı listeler, **dinamik bellek yönetimi** ve **veri yapıları** konusunda önemli bir konudur. Bu projede, C programlama dili kullanılarak bir **tek yönlü bağlı liste** (Singly Linked List) veri yapısı oluşturulmuş ve temel işlemler gerçekleştirilmiştir.
 
-The program features a user-friendly menu system, allowing users to manage and manipulate the linked list efficiently.
-
-![Açıklama](https://github.com/bahadirverir/Assets/blob/main/Ekran%20Resmi%202025-09-28%2019.57.39.png)
+Program, kullanıcı dostu bir **menü sistemi** ile çalışır ve kullanıcının bağlı listeyi yönetmesine olanak tanır.
 
 ---
 
-## 📌 **Features**
+## 📌 **İçerik ve Özellikler**
 
-This repository demonstrates the following **linked list** operations:
+Bu repo, aşağıdaki **bağlı liste işlemlerini** içeren bir uygulama sunmaktadır:
 
-✅ **Create a linked list**  
-✅ **Insert nodes**: at the beginning, at the end, **before/after** a specific node   
-✅ **Delete nodes**: from the beginning, from the end, **before/after** a specific node  
-✅ **Search and count nodes**  
-✅ **Sort the list**: ascending & descending  
-✅ **Reverse the list**  
-✅ **Remove duplicate nodes**  
-✅ **Clear all nodes**  
+✅ **Bağlı liste oluşturma**  
+✅ **Düğümleri ekleme:** Başa, sona, belirli bir düğümden önce/sonra  
+✅ **Düğümleri silme:** Baştan, sondan, belirli bir düğümden önce/sonra  
+✅ **Düğümleri arama ve sayma**  
+✅ **Bağlı listeyi sıralama:** Küçükten büyüğe & büyükten küçüğe  
+✅ **Listeyi ters çevirme**  
+✅ **Tekrar eden düğümleri silme**  
+✅ **Tüm düğümleri temizleme**  
 
 ---
 
-## 🛠 **Setup and Usage**
+## 🛠 **Kurulum ve Kullanım**
 
-### **1️⃣ Clone the Repository**
-To clone the repository, run the following command::
+### **1️⃣ Depoyu Klonlayın**
+Projeyi bilgisayarınıza indirmek için aşağıdaki komutu kullanabilirsiniz:
 ```bash
 git clone https://github.com/bahadirverir/LinkedList.git
 ```
-### **2️⃣ Compile the Program**
-Navigate to the project directory in your terminal.
+### **2️⃣ Derleme**
+Bir terminalde proje dizinine yerleşin.
 
-Compile the linked list program using GCC:
+Bağlı liste programını derlemek için GCC kullanarak aşağıdaki komutu çalıştırın:
 ```bash
 gcc List.c -o LinkedList
 ```
-### **3️⃣ Run the Program**
-After compilation, run the program with:
+### **3️⃣ Programı Çalıştırma**
+Derleme tamamlandıktan sonra programı çalıştırmak için:
 ```bash
 ./LinkedList
 ```
