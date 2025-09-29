@@ -8,6 +8,8 @@ Bağlı listeler, **dinamik bellek yönetimi** ve **veri yapıları** konusunda 
 
 Program, kullanıcı dostu bir **menü sistemi** ile çalışır ve kullanıcının bağlı listeyi yönetmesine olanak tanır.
 
+![Açıklama](https://github.com/bahadirverir/Assets/blob/main/Ekran%20Resmi%202025-07-05%2014.21.04.png)
+
 ---
 
 ## 📌 **İçerik ve Özellikler**
