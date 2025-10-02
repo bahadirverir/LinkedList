@@ -1,4 +1,4 @@
-# **C Dilinde Bağlı Liste (Linked List) Projesi**
+# **🔷 C Dilinde Bağlı Liste (Linked List) Projesi**
 
 Bu proje, **C dili** kullanılarak **tek yönlü bağlı liste (singly linked list)** işlemlerini gerçekleştiren bir programdır. Kullanıcı, **menü tabanlı** bir sistem üzerinden bağlı liste üzerinde ekleme, silme, arama, sıralama ve ters çevirme gibi işlemleri gerçekleştirebilir.
 
